@@ -9,3 +9,40 @@
      'MYEXTLIB'  => 'libgd/libgd$(LIB_EXT)',
      'dist'      => {'COMPRESS'=>'gzip -9f', 'SUFFIX' => 'gz',
  	            'ZIP'=>'/usr/bin/zip','ZIPFLAGS'=>'-rl'},
+--- wml-2.0.9/wml_common/Makefile.in~	2001-02-07 00:02:12.000000000 +0100
++++ wml-2.0.9/wml_common/Makefile.in	2004-11-23 22:01:15.000000000 +0100
+@@ -25,13 +25,15 @@
+ mandir          = $(prefix)/man
+ 
+ PATH_PERL       = @PATH_PERL@
+-MM_INSTALL_OPTS = PREFIX=$(libdir)/perl \
++#MM_INSTALL_OPTS = PREFIX=$(libdir)/perl \
+                   INSTALLPRIVLIB=@INSTALLPRIVLIB@ \
+                   INSTALLARCHLIB=@INSTALLARCHLIB@ \
+                   INST_MAN1DIR= \
+                   INSTALLMAN1DIR= \
+                   INST_MAN3DIR= \
+                   INSTALLMAN3DIR=
++MM_INSTALL_OPTS = INSTALLDIRS=vendor \
++		  DESTDIR=$(DESTDIR)
+ PERL_OPTS       = @PERL_OPTS@
+ 
+ INITVARS = \
+@@ -71,7 +73,7 @@
+ 	        else \
+ 	            (cd $$dir && $(PATH_PERL) Makefile.PL $(MM_INSTALL_OPTS)); \
+ 	        fi; \
+-	        (cd $$dir && $(MAKE) $(PERL_OPTS) pure_all) \
++	        (cd $$dir && $(MAKE) $(PERL_OPTS)) \
+ 	        || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+ 	        echo "<=== wml_common/$$dir"; \
+ 	    else :; \
+@@ -86,7 +88,7 @@
+ 	    eval "update=\"`echo '$$'have_$$dir`\""; \
+ 	    if test ".$$update" = .0; then \
+ 	        echo "===> wml_common/$$dir ($@)"; \
+-	        (cd $$dir && $(MAKE) pure_perl_install $(MM_INSTALL_OPTS) 2>&1 | sed -e '/^## Diff/,/^## Runn/d') \
++	        (cd $$dir && $(MAKE) install $(MM_INSTALL_OPTS) 2>&1 | sed -e '/^## Diff/,/^## Runn/d') \
+ 	        || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+ 	        echo "<=== wml_common/$$dir"; \
+ 	    else :; \
