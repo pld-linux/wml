@@ -3,7 +3,7 @@ Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Publishing
 Group(de):	Applikationen/Publizieren
@@ -53,7 +53,7 @@ plików HTML s± nadal potrzebni.
 %patch2 -p1
 
 %build
-%configure \
+%configure2_13 \
 	--with-perl=%{_bindir}/perl \
 	--with-openworld \
 	--with-forced-cc="%{__cc} %{rpmcflags} -I%{_includedir}/ncurses"
