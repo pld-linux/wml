@@ -3,7 +3,7 @@ Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.9
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Publishing
 Source0:	http://thewml.org/distrib/%{name}-%{version}.tar.gz
@@ -12,18 +12,19 @@ Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-PL_curstash.patch
 Patch3:		%{name}-acfix.patch
+Patch4:		%{name}-configure_require.patch
+Patch5:		%{name}-weird_perl_path.patch
 URL:		http://thewml.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libpng-devel
 BuildRequires:	ncurses-devel
+BuildRequires:	perl-devel
 BuildRequires:	perl-Bit-Vector >= 5.2
 BuildRequires:	perl-File-PathConvert
 BuildRequires:	perl-HTML-Clean
-# BuildRequires:	perl-IO-File # we don't have this one
 BuildRequires:	perl-Image-Size >= 2.6
 BuildRequires:	perl-Term-ReadKey >= 2.11
-BuildRequires:	perl-devel
 BuildRequires:	rpm-perlprov
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,6 +58,8 @@ plików HTML s± nadal potrzebni.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1 -b .orig
 
 %build
 cp -f /usr/share/automake/config.* etc
@@ -98,5 +101,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}/exec
 %attr(755,root,root) %{_libdir}/%{name}/exec/*
 %{_libdir}/%{name}/include
-%{_libdir}/%{name}/perl
+# contact a perl-aware person before uncommenting this line
+#%{_libdir}/%{name}/perl
+%{perl_vendorarch}/WML/
+%dir %{perl_vendorarch}/auto/WML
+%dir %{perl_vendorarch}/auto/WML/GD
+%attr(755,root,root) %{perl_vendorarch}/auto/WML/GD/*.so
 %{_mandir}/man*/*
