@@ -3,8 +3,8 @@ Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.0
-Release: 4
-Copyright:	free
+Release:	3
+Copyright:	GPL
 Group:		Applications/Publishing
 Group(pl):	Aplikacje/Publikowanie
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
@@ -15,15 +15,15 @@ URL:		http://www.engelschall.com/sw/wml/
 BuildRequires:	rpm-perlprov
 BuildRequires:	perl >= 5.003
 BuildRequires:	ncurses-devel
-BuildRequires:	libpng >= 1.0.8
+BuildRequires:	libpng-devel
 BuildRequires:	perl-Bit-Vector >= 5.2
 BuildRequires:	perl-File-PathConvert
 BuildRequires:	perl-Image-Size >= 2.6
+BuildRequires:	perl-HTML-Clean
 BuildRequires:	sed
 BuildRequires:	findutils
 # BuildRequires:	perl-IO-File # tego nie mamy
 BuildRequires:	perl-Term-ReadKey >= 2.11
-# BuildRoot can't containt %{name} because it broke installation
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,7 +49,6 @@ plików HTML s± nadal potrzebni.
 %patch1 -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--with-perl=%{_bindir}/perl \
 	--with-openworld \
@@ -79,9 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man*/*
 %dir %{_libdir}/%{name}
-%{_libdir}/%{name}/aux
 %dir %{_libdir}/%{name}/exec
+%{_libdir}/%{name}/aux
 %attr(755,root,root) %{_libdir}/%{name}/exec/*
 %{_libdir}/%{name}/include
 %{_libdir}/%{name}/perl
