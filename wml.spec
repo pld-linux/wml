@@ -3,7 +3,7 @@ Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.0
-Release:	3
+Release: 4
 Copyright:	free
 Group:		Applications/Publishing
 Group(pl):	Aplikacje/Publikowanie
@@ -14,7 +14,7 @@ URL:		http://www.engelschall.com/sw/wml/
 BuildRequires:	rpm-perlprov
 BuildRequires:	perl >= 5.003
 BuildRequires:	ncurses-devel
-BuildRequires:	libpng-devel
+BuildRequires:	libpng >= 1.0.8
 BuildRequires:	perl-Bit-Vector >= 5.2
 BuildRequires:	perl-File-PathConvert
 BuildRequires:	perl-Image-Size >= 2.6
