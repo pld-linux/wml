@@ -2,16 +2,15 @@
 Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
-Version:	2.0.6
-Release:	3
+Version:	2.0.9
+Release:	1
 License:	GPL
 Group:		Applications/Publishing
-Vendor:		Ralf S. Engelschall <rse@engelschall.com>
-Source0:	http://www.engelschall.com/sw/wml/distrib/%{name}-%{version}.tar.gz
+Source0:	http://thewml.org/distrib/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-PL_curstash.patch
-URL:		http://www.engelschall.com/sw/wml/
+URL:		http://thewml.org/
 BuildRequires:	rpm-perlprov
 BuildRequires:	perl >= 5.003
 BuildRequires:	ncurses-devel
@@ -51,10 +50,12 @@ plików HTML s± nadal potrzebni.
 %patch2 -p1
 
 %build
-%configure2_13 \
+./configure \
+	--prefix=%{_prefix} \
 	--with-perl=%{_bindir}/perl \
 	--with-openworld \
 	--with-forced-cc="%{__cc} %{rpmcflags} -I%{_includedir}/ncurses"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -65,10 +66,10 @@ install -d $RPM_BUILD_ROOT%{_datadir}
 	DESTDIR=$RPM_BUILD_ROOT
 
 # fix paths
-for file in `find $RPM_BUILD_ROOT -type f`; do
-	sed -e "s#${RPM_BUILD_ROOT}##g" ${file} > ${file}.new
-	mv -f ${file}.new ${file}
-done
+#for file in `find $RPM_BUILD_ROOT -type f`; do
+#	sed -e "s#${RPM_BUILD_ROOT}##g" ${file} > ${file}.new
+#	mv -f ${file}.new ${file}
+#done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS README README.mp4h SUPPORT VERSION.HISTORY
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
-%{_libdir}/%{name}/aux
+#%{_libdir}/%{name}/aux
 %dir %{_libdir}/%{name}/exec
 %attr(755,root,root) %{_libdir}/%{name}/exec/*
 %{_libdir}/%{name}/include
