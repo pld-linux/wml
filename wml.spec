@@ -1,4 +1,4 @@
-%include        %{_libdir}/rpm/macros.perl
+%include        /usr/lib/rpm/macros.perl
 Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
