@@ -1,0 +1,56 @@
+--- wml-2.0.9/configure~	2004-11-23 21:25:46.000000000 +0100
++++ wml-2.0.9/configure	2004-11-23 21:26:43.000000000 +0100
+@@ -2638,7 +2638,7 @@
+ else
+     echo "$as_me:$LINENO: checking for Perl module Getopt::Long (2.16)" >&5
+ echo $ECHO_N "checking for Perl module Getopt::Long (2.16)... $ECHO_C" >&6
+-rc=`$path_perl -e 'eval {require Getopt::Long 2.16}; print "ok" unless $@'`;
++rc=`$path_perl -e 'eval "use Getopt::Long 2.16"; print "ok" unless $@'`;
+ if test ".$rc" = .ok; then
+     have_getoptlong=1
+     echo "$as_me:$LINENO: result: found" >&5
+@@ -2652,7 +2652,7 @@
+ 
+     echo "$as_me:$LINENO: checking for Perl module Bit::Vector (5.2)" >&5
+ echo $ECHO_N "checking for Perl module Bit::Vector (5.2)... $ECHO_C" >&6
+-rc=`$path_perl -e 'eval {require Bit::Vector 5.2}; print "ok" unless $@'`;
++rc=`$path_perl -e 'eval "use Bit::Vector 5.2"; print "ok" unless $@'`;
+ if test ".$rc" = .ok; then
+     have_bitvector=1
+     echo "$as_me:$LINENO: result: found" >&5
+@@ -2666,7 +2666,7 @@
+ 
+     echo "$as_me:$LINENO: checking for Perl module File::PathConvert (ANY)" >&5
+ echo $ECHO_N "checking for Perl module File::PathConvert (ANY)... $ECHO_C" >&6
+-rc=`$path_perl -e 'eval {require File::PathConvert }; print "ok" unless $@'`;
++rc=`$path_perl -e 'eval "use File::PathConvert"; print "ok" unless $@'`;
+ if test ".$rc" = .ok; then
+     have_filepathconvert=1
+     echo "$as_me:$LINENO: result: found" >&5
+@@ -2680,7 +2680,7 @@
+ 
+     echo "$as_me:$LINENO: checking for Perl module Image::Size (2.6)" >&5
+ echo $ECHO_N "checking for Perl module Image::Size (2.6)... $ECHO_C" >&6
+-rc=`$path_perl -e 'eval {require Image::Size 2.6}; print "ok" unless $@'`;
++rc=`$path_perl -e 'eval "use Image::Size 2.6"; print "ok" unless $@'`;
+ if test ".$rc" = .ok; then
+     have_imagesize=1
+     echo "$as_me:$LINENO: result: found" >&5
+@@ -2694,7 +2694,7 @@
+ 
+     echo "$as_me:$LINENO: checking for Perl module IO::File (1.07)" >&5
+ echo $ECHO_N "checking for Perl module IO::File (1.07)... $ECHO_C" >&6
+-rc=`$path_perl -e 'eval {require IO::File 1.07}; print "ok" unless $@'`;
++rc=`$path_perl -e 'eval "use IO::File 1.07"; print "ok" unless $@'`;
+ if test ".$rc" = .ok; then
+     have_io=1
+     echo "$as_me:$LINENO: result: found" >&5
+@@ -2708,7 +2708,7 @@
+ 
+     echo "$as_me:$LINENO: checking for Perl module Term::ReadKey (2.11)" >&5
+ echo $ECHO_N "checking for Perl module Term::ReadKey (2.11)... $ECHO_C" >&6
+-rc=`$path_perl -e 'eval {require Term::ReadKey 2.11}; print "ok" unless $@'`;
++rc=`$path_perl -e 'eval "use Term::ReadKey 2.11"; print "ok" unless $@'`;
+ if test ".$rc" = .ok; then
+     have_termreadkey=1
+     echo "$as_me:$LINENO: result: found" >&5
