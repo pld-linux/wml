@@ -3,7 +3,7 @@ Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.6
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Publishing
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
