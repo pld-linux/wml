@@ -4,14 +4,15 @@ Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.3
 Release:	2
-Copyright:	GPL
+License:	GPL
 Group:		Applications/Publishing
+Group(de):	Applikationen/Publizieren
 Group(pl):	Aplikacje/Publikowanie
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
 Source0:	http://www.engelschall.com/sw/wml/%{name}-%{version}.tar.gz
-Patch0:		wml-DESTDIR.patch
-Patch1:		wml-install.patch
-Patch2:		wml-PL_curstash.patch
+Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-install.patch
+Patch2:		%{name}-PL_curstash.patch
 URL:		http://www.engelschall.com/sw/wml/
 BuildRequires:	rpm-perlprov
 BuildRequires:	perl >= 5.003
@@ -54,7 +55,7 @@ plików HTML s± nadal potrzebni.
 %configure \
 	--with-perl=%{_bindir}/perl \
 	--with-openworld \
-	--with-forced-cc="gcc $RPM_OPT_FLAGS -I%{_includedir}/ncurses"
+	--with-forced-cc="%{__cc} %{rpmcflags} -I%{_includedir}/ncurses"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -67,12 +68,12 @@ install -d $RPM_BUILD_ROOT%{_datadir}
 # fix paths
 for file in `find $RPM_BUILD_ROOT -type f`; do
 	sed -e "s#${RPM_BUILD_ROOT}##g" ${file} > ${file}.new
-	mv ${file}.new ${file}
+	mv -f ${file}.new ${file}
 done
 
 gzip -9nf ANNOUNCE BUGREPORT COPYRIGHT CREDITS ChangeLog \
-	  NEWS README README.mp4h SUPPORT VERSION.HISTORY \
-	  $RPM_BUILD_ROOT%{_mandir}/man*/*
+	  NEWS README README.mp4h SUPPORT VERSION.HISTORY
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
