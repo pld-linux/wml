@@ -89,6 +89,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}
 	DESTDIR=$RPM_BUILD_ROOT \
 	libsubdir=%{libsubdir}
 
+cp -f wml_backend/p4_gm4/doc/{m4,p4_gm4}.txt
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -96,6 +98,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ANNOUNCE BUGREPORT COPYRIGHT CREDITS ChangeLog
 %doc NEWS README README.mp4h SUPPORT VERSION.HISTORY
+%doc wml_aux/tidy/tidy.txt wml_aux/txt2html/txt2html.txt
+%doc wml_backend/p4_gm4/doc/p4_gm4.txt wml_docs/wml*.txt
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/exec
