@@ -2,14 +2,14 @@
 Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
-Version:	2.0.3
-Release:	2
+Version:	2.0.6
+Release:	1
 License:	GPL
 Group:		Applications/Publishing
 Group(de):	Applikationen/Publizieren
 Group(pl):	Aplikacje/Publikowanie
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
-Source0:	http://www.engelschall.com/sw/wml/%{name}-%{version}.tar.gz
+Source0:	http://www.engelschall.com/sw/wml/distrib/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-PL_curstash.patch
@@ -24,6 +24,7 @@ BuildRequires:	perl-Image-Size >= 2.6
 BuildRequires:	perl-HTML-Clean
 BuildRequires:	sed
 BuildRequires:	findutils
+BuildRequires:	perl-devel
 # BuildRequires:	perl-IO-File # tego nie mamy
 BuildRequires:	perl-Term-ReadKey >= 2.11
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
