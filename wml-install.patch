@@ -1,0 +1,11 @@
+diff -urN wml-2.0.0.org/configure wml-2.0.0/configure
+--- wml-2.0.0.org/configure	Mon Aug 28 01:41:03 2000
++++ wml-2.0.0/configure	Mon Aug 28 01:42:08 2000
+@@ -596,7 +596,6 @@
+ test "x$prefix" = xNONE && prefix=$ac_default_prefix
+ eval "dir=$prefix"
+ case $dir in
+-    *wml* ) libsubdir= ;;
+         * ) libsubdir="/wml" ;;
+ esac
+ 
