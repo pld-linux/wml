@@ -11,20 +11,19 @@ Source0:	http://thewml.org/distrib/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-PL_curstash.patch
+Patch3:		%{name}-acfix.patch
 URL:		http://thewml.org/
-BuildRequires:	rpm-perlprov
-BuildRequires:	perl-base
-BuildRequires:	ncurses-devel
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	libpng-devel
+BuildRequires:	ncurses-devel
 BuildRequires:	perl-Bit-Vector >= 5.2
 BuildRequires:	perl-File-PathConvert
-BuildRequires:	perl-Image-Size >= 2.6
 BuildRequires:	perl-HTML-Clean
-BuildRequires:	sed
-BuildRequires:	findutils
-BuildRequires:	perl-devel
-# BuildRequires:	perl-IO-File # tego nie mamy
+# BuildRequires:	perl-IO-File # we don't have this one
+BuildRequires:	perl-Image-Size >= 2.6
 BuildRequires:	perl-Term-ReadKey >= 2.11
+BuildRequires:	perl-devel
+BuildRequires:	rpm-perlprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,13 +48,22 @@ plików HTML s± nadal potrzebni.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
-./configure \
-	--prefix=%{_prefix} \
+cd wml_backend/p3_eperl
+%{__autoconf}
+cd ../p4_gm4
+%{__autoconf}
+cd ../../wml_aux/iselect
+%{__autoconf}
+cd ../../wml_common/gd
+%{__autoconf}
+cd ../..
+%configure \
+	--with-incdir=/usr/include/ncurses \
 	--with-perl=%{__perl} \
-	--with-openworld \
-	--with-forced-cc="%{__cc} %{rpmcflags} -I%{_includedir}/ncurses"
+	--with-openworld
 %{__make}
 
 %install
@@ -66,12 +74,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# fix paths
-#for file in `find $RPM_BUILD_ROOT -type f`; do
-#	sed -e "s#${RPM_BUILD_ROOT}##g" ${file} > ${file}.new
-#	mv -f ${file}.new ${file}
-#done
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -81,7 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS README README.mp4h SUPPORT VERSION.HISTORY
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
-#%%{_libdir}/%{name}/aux
 %dir %{_libdir}/%{name}/exec
 %attr(755,root,root) %{_libdir}/%{name}/exec/*
 %{_libdir}/%{name}/include
