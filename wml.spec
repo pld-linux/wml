@@ -52,7 +52,7 @@ plików HTML s± nadal potrzebni.
 %build
 ./configure \
 	--prefix=%{_prefix} \
-	--with-perl=%{_bindir}/perl \
+	--with-perl=%{__perl} \
 	--with-openworld \
 	--with-forced-cc="%{__cc} %{rpmcflags} -I%{_includedir}/ncurses"
 %{__make}
