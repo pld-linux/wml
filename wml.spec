@@ -3,7 +3,7 @@ Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.9
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Publishing
 Source0:	http://thewml.org/distrib/%{name}-%{version}.tar.gz
@@ -107,4 +107,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_vendorarch}/auto/WML
 %dir %{perl_vendorarch}/auto/WML/GD
 %attr(755,root,root) %{perl_vendorarch}/auto/WML/GD/*.so
-%{_mandir}/man*/*
+%{_mandir}/man[17]/*
+%{_mandir}/man3/WML*
