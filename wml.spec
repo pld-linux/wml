@@ -7,6 +7,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Publishing
 Source0:	http://thewml.org/distrib/%{name}-%{version}.tar.gz
+# Source0-md5:	a7c9da3b58f7e40706e3c29c37b4822b
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-install.patch
 Patch2:		%{name}-PL_curstash.patch
