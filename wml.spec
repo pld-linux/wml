@@ -3,7 +3,7 @@ Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
 Version:	2.0.9
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Publishing
 Source0:	http://thewml.org/distrib/%{name}-%{version}.tar.gz
@@ -14,6 +14,7 @@ Patch2:		%{name}-PL_curstash.patch
 Patch3:		%{name}-acfix.patch
 URL:		http://thewml.org/
 BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
 BuildRequires:	libpng-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	perl-Bit-Vector >= 5.2
@@ -25,6 +26,12 @@ BuildRequires:	perl-Term-ReadKey >= 2.11
 BuildRequires:	perl-devel
 BuildRequires:	rpm-perlprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%if "%{_lib}" == "lib64"
+%define		libsubdir	64/wml
+%else
+%define		libsubdir	/wml
+%endif
 
 %description
 WML is a free and extensible Webdesigner's off-line HTML generation
@@ -51,6 +58,8 @@ plików HTML s± nadal potrzebni.
 %patch3 -p1
 
 %build
+cp -f /usr/share/automake/config.* etc
+cp -f /usr/share/automake/config.* wml_backend/p2_mp4h
 cd wml_backend/p3_eperl
 %{__autoconf}
 cd ../p4_gm4
@@ -64,7 +73,8 @@ cd ../..
 	--with-incdir=/usr/include/ncurses \
 	--with-perl=%{__perl} \
 	--with-openworld
-%{__make}
+%{__make} \
+	libsubdir=%{libsubdir}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -72,7 +82,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	libsubdir=%{libsubdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
