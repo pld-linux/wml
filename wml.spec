@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS README README.mp4h SUPPORT VERSION.HISTORY
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
-#%{_libdir}/%{name}/aux
+#%%{_libdir}/%{name}/aux
 %dir %{_libdir}/%{name}/exec
 %attr(755,root,root) %{_libdir}/%{name}/exec/*
 %{_libdir}/%{name}/include
