@@ -13,7 +13,7 @@ Patch1:		%{name}-install.patch
 Patch2:		%{name}-PL_curstash.patch
 URL:		http://thewml.org/
 BuildRequires:	rpm-perlprov
-BuildRequires:	perl >= 5.003
+BuildRequires:	perl-base
 BuildRequires:	ncurses-devel
 BuildRequires:	libpng-devel
 BuildRequires:	perl-Bit-Vector >= 5.2
