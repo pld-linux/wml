@@ -6,8 +6,6 @@ Version:	2.0.6
 Release:	2
 License:	GPL
 Group:		Applications/Publishing
-Group(de):	Applikationen/Publizieren
-Group(pl):	Aplikacje/Publikowanie
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
 Source0:	http://www.engelschall.com/sw/wml/distrib/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
