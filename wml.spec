@@ -7,9 +7,10 @@ Release:	1
 Copyright:	free
 Group:		Applications/Publishing
 Group(pl):	Aplikacje/Publikowanie
-URL:		http://www.engelschall.com/sw/wml/
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
-Source:		http://www.engelschall.com/sw/wml/dist/%{name}-%{version}.tar.gz
+Source0:	http://www.engelschall.com/sw/wml/dist/%{name}-%{version}.tar.gz
+Patch0:		wml-DESTDIR.patch
+URL:		http://www.engelschall.com/sw/wml/
 BuildRequires:	rpm-perlprov
 BuildRequires:	perl >= 5.003
 BuildRequires:	ncurses-devel
@@ -22,11 +23,11 @@ BuildRequires:	findutils
 # BuildRequires:	perl-IO-File # tego nie mamy
 BuildRequires:	perl-Term-ReadKey >= 2.11
 # BuildRoot can't containt %{name} because it broke installation
-BuildRoot:	%{tmpdir}/WML-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 WML is a free and extensible Webdesigner's off-line HTML generation
-toolkit for Unix.  WML consists of a control frontend driving up to
+toolkit for Unix. WML consists of a control frontend driving up to
 nine backends in a sequential pass-oriented filtering scheme. Each
 backend provides one particular core language. For maximum power WML
 additionally ships with a well-suited set of include files which
@@ -35,13 +36,15 @@ languages. While not trivial and idiot proof WML provides most of the
 core features real hackers always wanted for HTML generation.
 
 %description -l pl
-WML jest darmowym i ³atwo rozszerzalnym zbiorem narzêdzi do generowania
-plików HTML. WML udostêpnia dziewiêæ sekwencyjnie uruchamianych systemów
-filtrów. Ka¿dy filtr udostêpnia jeden g³ówny jêzyk. WML udostêpnia
-wiêkszo¶æ narzêdzi jednak prawdziwi twórcy plików HTML s± nadal potrzebni.
+WML jest darmowym i ³atwo rozszerzalnym zbiorem narzêdzi do
+generowania plików HTML. WML udostêpnia dziewiêæ sekwencyjnie
+uruchamianych systemów filtrów. Ka¿dy filtr udostêpnia jeden g³ówny
+jêzyk. WML udostêpnia wiêkszo¶æ narzêdzi jednak prawdziwi twórcy
+plików HTML s± nadal potrzebni.
 
 %prep 
 %setup -q
+%patch -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
@@ -56,8 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}
 
 make install \
-	prefix=$RPM_BUILD_ROOT%{_prefix}
-mv $RPM_BUILD_ROOT%{_prefix}/man $RPM_BUILD_ROOT%{_datadir}
+	DESTDIR=$RPM_BUILD_ROOT
 
 # fix paths
 for file in `find $RPM_BUILD_ROOT -type f`; do
@@ -76,9 +78,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
-%dir %{_libdir}/%{name}/exec
 %{_libdir}/%{name}/aux
+%dir %{_libdir}/%{name}/exec
+%attr(755,root,root) %{_libdir}/%{name}/exec/*
 %{_libdir}/%{name}/include
 %{_libdir}/%{name}/perl
 %{_mandir}/man*/*
-%attr(755,root,root) %{_libdir}/%{name}/exec/*
