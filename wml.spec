@@ -10,6 +10,7 @@ Group(pl):	Aplikacje/Publikowanie
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
 Source0:	http://www.engelschall.com/sw/wml/dist/%{name}-%{version}.tar.gz
 Patch0:		wml-DESTDIR.patch
+Patch1:		wml-install.patch
 URL:		http://www.engelschall.com/sw/wml/
 BuildRequires:	rpm-perlprov
 BuildRequires:	perl >= 5.003
@@ -44,7 +45,8 @@ plików HTML s± nadal potrzebni.
 
 %prep 
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
