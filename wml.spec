@@ -2,15 +2,16 @@
 Summary:	Website META Language
 Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
 Name:		wml
-Version:	2.0.0
-Release:	3
+Version:	2.0.3
+Release:	1
 Copyright:	GPL
 Group:		Applications/Publishing
 Group(pl):	Aplikacje/Publikowanie
 Vendor:		Ralf S. Engelschall <rse@engelschall.com>
-Source0:	http://www.engelschall.com/sw/wml/dist/%{name}-%{version}.tar.gz
+Source0:	http://www.engelschall.com/sw/wml/%{name}-%{version}.tar.gz
 Patch0:		wml-DESTDIR.patch
 Patch1:		wml-install.patch
+Patch2:		wml-PL_curstash.patch
 URL:		http://www.engelschall.com/sw/wml/
 BuildRequires:	rpm-perlprov
 BuildRequires:	perl >= 5.003
@@ -47,6 +48,7 @@ plików HTML s± nadal potrzebni.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %configure \
@@ -78,10 +80,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man*/*
 %dir %{_libdir}/%{name}
-%dir %{_libdir}/%{name}/exec
 %{_libdir}/%{name}/aux
+%dir %{_libdir}/%{name}/exec
 %attr(755,root,root) %{_libdir}/%{name}/exec/*
 %{_libdir}/%{name}/include
 %{_libdir}/%{name}/perl
