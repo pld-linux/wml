@@ -44,7 +44,7 @@ uruchamianych systemów filtrów. Ka¿dy filtr udostêpnia jeden g³ówny
 jêzyk. WML udostêpnia wiêkszo¶æ narzêdzi jednak prawdziwi twórcy
 plików HTML s± nadal potrzebni.
 
-%prep 
+%prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
