@@ -1,6 +1,6 @@
-diff -Nru wml-2.0.0/Makefile.in wml-2.0.0.new/Makefile.in
---- wml-2.0.0/Makefile.in	Mon May  8 00:34:13 2000
-+++ wml-2.0.0.new/Makefile.in	Tue May 23 20:09:44 2000
+diff -urN wml-2.0.0.org/Makefile.in wml-2.0.0/Makefile.in
+--- wml-2.0.0.org/Makefile.in	Wed Sep  6 21:39:19 2000
++++ wml-2.0.0/Makefile.in	Wed Sep  6 21:39:30 2000
 @@ -24,11 +24,11 @@
  TARBALL         = $(SHTOOL) tarball -t
  
@@ -188,9 +188,9 @@ diff -Nru wml-2.0.0/Makefile.in wml-2.0.0.new/Makefile.in
  
  install-misc:
  	@echo ""
-diff -Nru wml-2.0.0/wml_aux/iselect/Makefile.in wml-2.0.0.new/wml_aux/iselect/Makefile.in
---- wml-2.0.0/wml_aux/iselect/Makefile.in	Tue May  2 18:16:57 2000
-+++ wml-2.0.0.new/wml_aux/iselect/Makefile.in	Tue May 23 20:16:48 2000
+diff -urN wml-2.0.0.org/wml_aux/iselect/Makefile.in wml-2.0.0/wml_aux/iselect/Makefile.in
+--- wml-2.0.0.org/wml_aux/iselect/Makefile.in	Wed Sep  6 21:39:16 2000
++++ wml-2.0.0/wml_aux/iselect/Makefile.in	Wed Sep  6 21:39:30 2000
 @@ -29,7 +29,7 @@
  prefix          = @prefix@
  exec_prefix     = @exec_prefix@
@@ -217,9 +217,9 @@ diff -Nru wml-2.0.0/wml_aux/iselect/Makefile.in wml-2.0.0.new/wml_aux/iselect/Ma
  
  # ------------------------------------------------
  #   CLEANUP
-diff -Nru wml-2.0.0/wml_backend/p2_mp4h/Makefile.in wml-2.0.0.new/wml_backend/p2_mp4h/Makefile.in
---- wml-2.0.0/wml_backend/p2_mp4h/Makefile.in	Thu Apr 20 22:42:03 2000
-+++ wml-2.0.0.new/wml_backend/p2_mp4h/Makefile.in	Tue May 23 20:13:13 2000
+diff -urN wml-2.0.0.org/wml_backend/p2_mp4h/Makefile.in wml-2.0.0/wml_backend/p2_mp4h/Makefile.in
+--- wml-2.0.0.org/wml_backend/p2_mp4h/Makefile.in	Wed Sep  6 21:39:18 2000
++++ wml-2.0.0/wml_backend/p2_mp4h/Makefile.in	Wed Sep  6 21:39:30 2000
 @@ -53,9 +53,9 @@
  # ------------------------------------------------
  
@@ -233,9 +233,9 @@ diff -Nru wml-2.0.0/wml_backend/p2_mp4h/Makefile.in wml-2.0.0.new/wml_backend/p2
  
  # ------------------------------------------------
  #   CLEANUP
-diff -Nru wml-2.0.0/wml_backend/p3_eperl/Makefile.in wml-2.0.0.new/wml_backend/p3_eperl/Makefile.in
---- wml-2.0.0/wml_backend/p3_eperl/Makefile.in	Thu Apr 27 23:45:26 2000
-+++ wml-2.0.0.new/wml_backend/p3_eperl/Makefile.in	Tue May 23 20:14:24 2000
+diff -urN wml-2.0.0.org/wml_backend/p3_eperl/Makefile.in wml-2.0.0/wml_backend/p3_eperl/Makefile.in
+--- wml-2.0.0.org/wml_backend/p3_eperl/Makefile.in	Wed Sep  6 21:39:18 2000
++++ wml-2.0.0/wml_backend/p3_eperl/Makefile.in	Wed Sep  6 21:39:30 2000
 @@ -50,7 +50,7 @@
  bindir          = $(prefix)/bin
  libsubdir       = @libsubdir@
@@ -266,9 +266,9 @@ diff -Nru wml-2.0.0/wml_backend/p3_eperl/Makefile.in wml-2.0.0.new/wml_backend/p
  
  
  # ------------------------------------------------
-diff -Nru wml-2.0.0/wml_backend/p9_slice/Makefile.in wml-2.0.0.new/wml_backend/p9_slice/Makefile.in
---- wml-2.0.0/wml_backend/p9_slice/Makefile.in	Fri Apr 28 01:06:24 2000
-+++ wml-2.0.0.new/wml_backend/p9_slice/Makefile.in	Tue May 23 20:15:54 2000
+diff -urN wml-2.0.0.org/wml_backend/p9_slice/Makefile.in wml-2.0.0/wml_backend/p9_slice/Makefile.in
+--- wml-2.0.0.org/wml_backend/p9_slice/Makefile.in	Wed Sep  6 21:39:18 2000
++++ wml-2.0.0/wml_backend/p9_slice/Makefile.in	Wed Sep  6 21:39:30 2000
 @@ -28,7 +28,7 @@
  bindir          = $(prefix)/bin
  libsubdir       = @libsubdir@
@@ -295,9 +295,25 @@ diff -Nru wml-2.0.0/wml_backend/p9_slice/Makefile.in wml-2.0.0.new/wml_backend/p
  	@$(MAKE) install-recursive prefix=$(prefix)
  
  # ------------------------------------------------
-diff -Nru wml-2.0.0/wml_include/Makefile.in wml-2.0.0.new/wml_include/Makefile.in
---- wml-2.0.0/wml_include/Makefile.in	Thu Apr 27 23:52:00 2000
-+++ wml-2.0.0.new/wml_include/Makefile.in	Tue May 23 20:11:22 2000
+diff -urN wml-2.0.0.org/wml_common/Makefile.in wml-2.0.0/wml_common/Makefile.in
+--- wml-2.0.0.org/wml_common/Makefile.in	Wed Sep  6 21:39:15 2000
++++ wml-2.0.0/wml_common/Makefile.in	Wed Sep  6 21:39:49 2000
+@@ -25,9 +25,9 @@
+ mandir          = $(prefix)/man
+ 
+ PATH_PERL       = @PATH_PERL@
+-MM_INSTALL_OPTS = PREFIX=$(libdir)/perl \
+-                  INSTALLPRIVLIB=@INSTALLPRIVLIB@ \
+-                  INSTALLARCHLIB=@INSTALLARCHLIB@ \
++MM_INSTALL_OPTS = PREFIX=$(DESTDIR)$(libdir)/perl \
++                  INSTALLPRIVLIB=$(DESTDIR)@INSTALLPRIVLIB@ \
++                  INSTALLARCHLIB=$(DESTDIR)@INSTALLARCHLIB@ \
+                   INST_MAN1DIR= \
+                   INSTALLMAN1DIR= \
+                   INST_MAN3DIR= \
+diff -urN wml-2.0.0.org/wml_include/Makefile.in wml-2.0.0/wml_include/Makefile.in
+--- wml-2.0.0.org/wml_include/Makefile.in	Wed Sep  6 21:39:19 2000
++++ wml-2.0.0/wml_include/Makefile.in	Wed Sep  6 21:39:30 2000
 @@ -24,7 +24,7 @@
  bindir          = $(prefix)/bin
  libsubdir       = @libsubdir@
@@ -330,9 +346,9 @@ diff -Nru wml-2.0.0/wml_include/Makefile.in wml-2.0.0.new/wml_include/Makefile.i
  	done
  
  clean:
-diff -Nru wml-2.0.0/wml_misc/Makefile.in wml-2.0.0.new/wml_misc/Makefile.in
---- wml-2.0.0/wml_misc/Makefile.in	Thu Apr 27 23:52:05 2000
-+++ wml-2.0.0.new/wml_misc/Makefile.in	Tue May 23 20:10:27 2000
+diff -urN wml-2.0.0.org/wml_misc/Makefile.in wml-2.0.0/wml_misc/Makefile.in
+--- wml-2.0.0.org/wml_misc/Makefile.in	Wed Sep  6 21:39:17 2000
++++ wml-2.0.0/wml_misc/Makefile.in	Wed Sep  6 21:39:30 2000
 @@ -20,11 +20,11 @@
  MKDIR           = $(top_srcdir)/etc/shtool mkdir -f -p -m 755
  
