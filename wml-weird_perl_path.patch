@@ -1,0 +1,11 @@
+--- wml-2.0.9/wml_common/gd/Makefile.PL.in~	2000-03-12 17:22:30.000000000 +0100
++++ wml-2.0.9/wml_common/gd/Makefile.PL.in	2004-11-23 21:35:32.000000000 +0100
+@@ -4,7 +4,7 @@
+ WriteMakefile(
+     'NAME'	=> 'WML::GD',
+     'VERSION_FROM'	=> 'GD.pm',
+-    'PM'	=> {'GD.pm' => '$(INST_LIBDIR)/GD.pm'},
++#   'PM'	=> {'GD.pm' => '$(INST_LIBDIR)/GD.pm'},
+     'MYEXTLIB'  => 'libgd/libgd$(LIB_EXT)',
+     'dist'      => {'COMPRESS'=>'gzip -9f', 'SUFFIX' => 'gz',
+ 	            'ZIP'=>'/usr/bin/zip','ZIPFLAGS'=>'-rl'},
