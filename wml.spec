@@ -70,15 +70,13 @@ for file in `find $RPM_BUILD_ROOT -type f`; do
 	mv -f ${file}.new ${file}
 done
 
-gzip -9nf ANNOUNCE BUGREPORT COPYRIGHT CREDITS ChangeLog \
-	  NEWS README README.mp4h SUPPORT VERSION.HISTORY
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc ANNOUNCE BUGREPORT COPYRIGHT CREDITS ChangeLog
+%doc NEWS README README.mp4h SUPPORT VERSION.HISTORY
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/aux
