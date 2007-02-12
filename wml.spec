@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Website META Language
-Summary(pl):	META Jêzyk do obs³ugi serwisów WWW
+Summary(pl.UTF-8):   META JÄ™zyk do obsÅ‚ugi serwisÃ³w WWW
 Name:		wml
 Version:	2.0.9
 Release:	5
@@ -45,12 +45,12 @@ provide higher-level features build on top of the backends core
 languages. While not trivial and idiot proof WML provides most of the
 core features real hackers always wanted for HTML generation.
 
-%description -l pl
-WML jest darmowym i ³atwo rozszerzalnym zbiorem narzêdzi do
-generowania plików HTML. WML udostêpnia dziewiêæ sekwencyjnie
-uruchamianych systemów filtrów. Ka¿dy filtr udostêpnia jeden g³ówny
-jêzyk. WML udostêpnia wiêkszo¶æ narzêdzi jednak prawdziwi twórcy
-plików HTML s± nadal potrzebni.
+%description -l pl.UTF-8
+WML jest darmowym i Å‚atwo rozszerzalnym zbiorem narzÄ™dzi do
+generowania plikÃ³w HTML. WML udostÄ™pnia dziewiÄ™Ä‡ sekwencyjnie
+uruchamianych systemÃ³w filtrÃ³w. KaÅ¼dy filtr udostÄ™pnia jeden gÅ‚Ã³wny
+jÄ™zyk. WML udostÄ™pnia wiÄ™kszoÅ›Ä‡ narzÄ™dzi jednak prawdziwi twÃ³rcy
+plikÃ³w HTML sÄ… nadal potrzebni.
 
 %prep
 %setup -q
