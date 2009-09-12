@@ -3,7 +3,7 @@ Summary:	Website META Language
 Summary(pl.UTF-8):	META Język do obsługi serwisów WWW
 Name:		wml
 Version:	2.0.9
-Release:	5
+Release:	6
 License:	GPL
 Group:		Applications/Publishing
 Source0:	http://thewml.org/distrib/%{name}-%{version}.tar.gz
@@ -26,7 +26,6 @@ BuildRequires:	perl-HTML-Clean
 BuildRequires:	perl-Image-Size >= 2.6
 BuildRequires:	perl-Term-ReadKey >= 2.11
 BuildRequires:	rpm-perlprov
-Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %if "%{_lib}" == "lib64"
