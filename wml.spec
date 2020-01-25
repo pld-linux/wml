@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	Website META Language
 Summary(pl.UTF-8):	META Język do obsługi serwisów WWW
 Name:		wml
